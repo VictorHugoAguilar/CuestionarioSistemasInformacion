@@ -21,6 +21,17 @@ namespace CuestionarioSistemasInformacion
 		{
 
 		}
+		private static string InputBox(string texto)
+		{
+			InputBoxDialog ib = new InputBoxDialog();
+			ib.FormPrompt = texto;
+			ib.DefaultValue = "";
+			ib.ShowDialog();
+			string s = ib.InputResponse;
+			ib.Close();
+			return s;
+		}
+
 		//Creamos un DataSet
 		DataSet dsCuestionario;
 
@@ -38,7 +49,13 @@ namespace CuestionarioSistemasInformacion
 		private int respuestasCorrectas = 0;
 		private int respuestasIncorrectas = 0;
 		private double totalNota = 0;
+
+		//para el label de las contestadas
 		private int preguntasContestadas = 0;
+
+		//variables para la evaluacion
+		private int preguntasEvaluacion = 0;
+		private int totalPreguntasEvaluacion = 0;
 
 
 		private void Cuestionario_Load(object sender, EventArgs e)
@@ -218,7 +235,6 @@ namespace CuestionarioSistemasInformacion
 		private void rbtn1_CheckedChanged(object sender, EventArgs e)
 		{
 			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-
 			if (rbtn1.Checked == Enabled)
 			{
 				bool respuesta = PreguntaContestada(pos);
@@ -239,8 +255,7 @@ namespace CuestionarioSistemasInformacion
 
 		private void rbtn2_CheckedChanged(object sender, EventArgs e)
 		{
-			totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-
+			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 			if (rbtn2.Checked == Enabled)
 			{
 				bool respuesta = PreguntaContestada(pos);
@@ -248,7 +263,6 @@ namespace CuestionarioSistemasInformacion
 					respuestasCorrectas++;
 				if (!respuesta)
 					respuestasIncorrectas++;
-
 				//if (pos < totalRegistros - 1)
 				//{
 				DeseleccionarRadioButton();
@@ -261,8 +275,7 @@ namespace CuestionarioSistemasInformacion
 
 		private void rbtn3_CheckedChanged(object sender, EventArgs e)
 		{
-			totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-
+			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 			if (rbtn3.Checked == Enabled)
 			{
 				bool respuesta = PreguntaContestada(pos);
@@ -270,7 +283,6 @@ namespace CuestionarioSistemasInformacion
 					respuestasCorrectas++;
 				if (!respuesta)
 					respuestasIncorrectas++;
-
 				//if (pos < totalRegistros - 1)
 				//{
 				DeseleccionarRadioButton();
@@ -283,8 +295,7 @@ namespace CuestionarioSistemasInformacion
 
 		private void rbtn4_CheckedChanged(object sender, EventArgs e)
 		{
-			totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-
+			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 			if (rbtn4.Checked == Enabled)
 			{
 				bool respuesta = PreguntaContestada(pos);
@@ -292,7 +303,6 @@ namespace CuestionarioSistemasInformacion
 					respuestasCorrectas++;
 				if (!respuesta)
 					respuestasIncorrectas++;
-
 				//if (pos < totalRegistros - 1)
 				//{
 				DeseleccionarRadioButton();
@@ -303,11 +313,8 @@ namespace CuestionarioSistemasInformacion
 			}
 		}
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			MessageBox.Show(devolverPosicionAleatoria(totalRegistros).ToString());
-		}
 
+		//Boton que elimina preguntas
 		private void btnEliminarPregunta_Click(object sender, EventArgs e)
 		{
 			DialogResult deseaEliminar = MessageBox.Show("Esta seguro que desea elimnar el registro",
@@ -318,16 +325,35 @@ namespace CuestionarioSistemasInformacion
 				System.Data.OleDb.OleDbCommandBuilder cb;
 				cb = new System.Data.OleDb.OleDbCommandBuilder(da);
 
-				//eliminamos el registro de la tabla
+				//eliminamos el registro en la posicion
+				dsCuestionario.Tables["Cuestionario"].Rows[pos].Delete();
+
+				//actualizamos la base de datos el registro de la tabla
 				da.Update(dsCuestionario, "Cuestionario");
 
 				//actualizamos el total de registros
-				totalRegistros--;
+				totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 
 				//mostramos una posicion aleatoria
 				pos = devolverPosicionAleatoria(totalRegistros);
 				mostrarRegistro(pos);
 			}
 		}
+
+
+		//Boton de evaluar
+		private void button1_Click(object sender, EventArgs e)
+		{
+			totalPreguntasEvaluacion =int.Parse(InputBox("Introduzca cuantas preguntas desea contestar"));
+			for (int i = 0; i < totalPreguntasEvaluacion; i++)
+			{
+
+			}
+		}
+
+
+
+
+
 	}
 }

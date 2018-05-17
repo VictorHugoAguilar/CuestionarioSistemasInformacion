@@ -85,6 +85,7 @@ namespace CuestionarioSistemasInformacion
 			if (compruebaDatos())
 			{
 				MessageBox.Show("todo ok");
+
 				//reconectamos con la base de datos
 				System.Data.OleDb.OleDbCommandBuilder cb;
 				cb = new System.Data.OleDb.OleDbCommandBuilder(da);

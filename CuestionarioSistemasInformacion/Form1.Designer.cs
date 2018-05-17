@@ -54,7 +54,7 @@
 			this.lblRegistrosprimero = new System.Windows.Forms.Label();
 			this.lblRegistrode = new System.Windows.Forms.Label();
 			this.lblRegistro = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnEvaluar = new System.Windows.Forms.Button();
 			this.grpPregunta.SuspendLayout();
 			this.grpPuntuacion.SuspendLayout();
 			this.grpTotal.SuspendLayout();
@@ -77,9 +77,9 @@
 			this.lblRespuesta1.Location = new System.Drawing.Point(48, 102);
 			this.lblRespuesta1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta1.Name = "lblRespuesta1";
-			this.lblRespuesta1.Size = new System.Drawing.Size(35, 13);
+			this.lblRespuesta1.Size = new System.Drawing.Size(91, 13);
 			this.lblRespuesta1.TabIndex = 1;
-			this.lblRespuesta1.Text = "label1";
+			this.lblRespuesta1.Text = "Primera respuesta";
 			this.lblRespuesta1.Click += new System.EventHandler(this.lblPregunta1_Click);
 			// 
 			// grpPregunta
@@ -131,9 +131,9 @@
 			this.lblRespuesta4.Location = new System.Drawing.Point(48, 310);
 			this.lblRespuesta4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta4.Name = "lblRespuesta4";
-			this.lblRespuesta4.Size = new System.Drawing.Size(35, 13);
+			this.lblRespuesta4.Size = new System.Drawing.Size(92, 13);
 			this.lblRespuesta4.TabIndex = 7;
-			this.lblRespuesta4.Text = "label4";
+			this.lblRespuesta4.Text = "Cuarta Respuesta";
 			// 
 			// rbtn3
 			// 
@@ -153,9 +153,9 @@
 			this.lblRespuesta3.Location = new System.Drawing.Point(48, 238);
 			this.lblRespuesta3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta3.Name = "lblRespuesta3";
-			this.lblRespuesta3.Size = new System.Drawing.Size(35, 13);
+			this.lblRespuesta3.Size = new System.Drawing.Size(103, 13);
 			this.lblRespuesta3.TabIndex = 5;
-			this.lblRespuesta3.Text = "label3";
+			this.lblRespuesta3.Text = "Tercera Respuestas";
 			// 
 			// rbtn2
 			// 
@@ -175,9 +175,9 @@
 			this.lblRespuesta2.Location = new System.Drawing.Point(48, 170);
 			this.lblRespuesta2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta2.Name = "lblRespuesta2";
-			this.lblRespuesta2.Size = new System.Drawing.Size(35, 13);
+			this.lblRespuesta2.Size = new System.Drawing.Size(104, 13);
 			this.lblRespuesta2.TabIndex = 3;
-			this.lblRespuesta2.Text = "label2";
+			this.lblRespuesta2.Text = "Segunda Respuesta";
 			// 
 			// rbtn1
 			// 
@@ -357,23 +357,23 @@
 			this.lblRegistro.TabIndex = 4;
 			this.lblRegistro.Text = "Contestadas";
 			// 
-			// button1
+			// btnEvaluar
 			// 
-			this.button1.Location = new System.Drawing.Point(594, 474);
-			this.button1.Margin = new System.Windows.Forms.Padding(2);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(84, 31);
-			this.button1.TabIndex = 10;
-			this.button1.Text = "posicion aleatoria";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.btnEvaluar.Location = new System.Drawing.Point(603, 474);
+			this.btnEvaluar.Margin = new System.Windows.Forms.Padding(2);
+			this.btnEvaluar.Name = "btnEvaluar";
+			this.btnEvaluar.Size = new System.Drawing.Size(162, 31);
+			this.btnEvaluar.TabIndex = 10;
+			this.btnEvaluar.Text = "Evaluar";
+			this.btnEvaluar.UseVisualStyleBackColor = true;
+			this.btnEvaluar.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// Cuestionario
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1008, 561);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnEvaluar);
 			this.Controls.Add(this.grpTotal);
 			this.Controls.Add(this.btnComenzar);
 			this.Controls.Add(this.btnEliminarPregunta);
@@ -423,7 +423,7 @@
 		private System.Windows.Forms.Label lblRegistrosprimero;
 		private System.Windows.Forms.Label lblRegistrode;
 		private System.Windows.Forms.Label lblRegistro;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnEvaluar;
 	}
 }
 
