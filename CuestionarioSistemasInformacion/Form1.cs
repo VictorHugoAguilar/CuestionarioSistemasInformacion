@@ -123,7 +123,7 @@ namespace CuestionarioSistemasInformacion
 			lblRegistrosprimero.Text = preguntasContestadas.ToString();
 			preguntasContestadas++;
 			lblRegistroUltimo.Text = totalRegistros.ToString();
-				}
+			}
 			else
 			{
 				limpiarLabelPreguntas();
