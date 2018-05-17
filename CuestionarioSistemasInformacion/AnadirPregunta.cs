@@ -25,7 +25,6 @@ namespace CuestionarioSistemasInformacion
 		//creamo un total de registro
 		private int totalRegistros;
 
-
 		private void label3_Click(object sender, EventArgs e)
 		{
 
@@ -33,17 +32,19 @@ namespace CuestionarioSistemasInformacion
 
 		private void btnVolver_Click(object sender, EventArgs e)
 		{
-			Close();
+			Cuestionario cuest = new Cuestionario();
+			cuest.Show();
+			this.Close();
 		}
 
 		private void AnadirPregunta_Load(object sender, EventArgs e)
 		{
-			//Creamos un objeto conexion
+			//Creamos un objeto conexión
 			System.Data.OleDb.OleDbConnection con;
 			con = new System.Data.OleDb.OleDbConnection();
 
-			//le pasamos la ruta de coneccion
-			con.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:/Users/Coquis/Source/Repos/CuestionarioSistemasInformacion/Recursos/Database1.accdb";
+			//le pasamos la ruta de conexión
+			con.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:/Users/Coquis/Source/Repos/Nueva carpeta/CuestionarioSistemasInformacion/Recursos/Database1.accdb";
 
 			//abrimos la coneccion
 			con.Open();
@@ -59,7 +60,7 @@ namespace CuestionarioSistemasInformacion
 			da.Fill(dsCuestionario, "Cuestionario");
 			
 			totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-			//cerramos la conexcion
+			//cerramos la conexión
 			con.Close();
 		}
 

@@ -65,7 +65,7 @@ namespace CuestionarioSistemasInformacion
 			con = new System.Data.OleDb.OleDbConnection();
 
 			//Le pasamos la ruta de la conexión
-			con.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:/Users/Coquis/Source/Repos/CuestionarioSistemasInformacion/Recursos/Database1.accdb";
+			con.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:/Users/Coquis/Source/Repos/Nueva carpeta/CuestionarioSistemasInformacion/Recursos/Database1.accdb";
 
 			//Abrimos la conexión
 			con.Open();
@@ -86,7 +86,6 @@ namespace CuestionarioSistemasInformacion
 			pos = devolverPosicionAleatoria(totalRegistros);
 			mostrarRegistro(pos);
 
-
 			//Cerramos la conexión
 			con.Close();
 		}
@@ -94,6 +93,7 @@ namespace CuestionarioSistemasInformacion
 		//Creamos un método que nos muestra donde estamos situados
 		private void mostrarRegistro(int pos)
 		{
+			if(hayRegistros()){
 			//Objeto que nos permite recoger un registro de la tabla
 			DataRow dRegistro;
 
@@ -103,11 +103,11 @@ namespace CuestionarioSistemasInformacion
 			//Cogemos el valor de cada una de las columnas del registro 
 			//y lo pasamos al labelbox correspondiente
 
-			lblPregunta.Text = dRegistro[0].ToString();
-			lblRespuesta1.Text = dRegistro[1].ToString();
-			lblRespuesta2.Text = dRegistro[2].ToString();
-			lblRespuesta3.Text = dRegistro[3].ToString();
-			lblRespuesta4.Text = dRegistro[4].ToString();
+			lblPregunta.Text = dRegistro[1].ToString();
+			lblRespuesta1.Text = dRegistro[2].ToString();
+			lblRespuesta2.Text = dRegistro[3].ToString();
+			lblRespuesta3.Text = dRegistro[4].ToString();
+			lblRespuesta4.Text = dRegistro[5].ToString();
 
 			//marcador
 			lblPuntuacionCorrecta.Text = respuestasCorrectas.ToString();
@@ -123,7 +123,22 @@ namespace CuestionarioSistemasInformacion
 			lblRegistrosprimero.Text = preguntasContestadas.ToString();
 			preguntasContestadas++;
 			lblRegistroUltimo.Text = totalRegistros.ToString();
+				}
+			else
+			{
+				limpiarLabelPreguntas();
+			}
 
+		}
+
+		//creamos un método que limpie los contenidos de los label
+		private void limpiarLabelPreguntas()
+		{
+			lblPregunta.Text = "Preguntas";
+			lblRespuesta1.Text = "Respuesta 1";
+			lblRespuesta2.Text = "Respuesta 2";
+			lblRespuesta3.Text = "Respuesta 3";
+			lblRespuesta4.Text = "Respuesta 4";
 		}
 
 		//creamos un metodo que nos devuelve si hay registros en la tabla
@@ -151,7 +166,10 @@ namespace CuestionarioSistemasInformacion
 		private void btnAñadirPregunta_Click(object sender, EventArgs e)
 		{
 			AnadirPregunta Anadir = new AnadirPregunta();
-			Anadir.ShowDialog();
+			Anadir.Show();
+
+			this.Close();
+
 		}
 
 		//creamos un metodo que nos pone los marcadore en 0
@@ -243,6 +261,7 @@ namespace CuestionarioSistemasInformacion
 		//al seleccionar un radiobuton damos paso al evento
 		private void rbtn1_CheckedChanged(object sender, EventArgs e)
 		{
+			if(hayRegistros()){
 			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 			if (rbtn1.Checked == Enabled)
 			{
@@ -260,10 +279,12 @@ namespace CuestionarioSistemasInformacion
 				pos = devolverPosicionAleatoria(totalRegistros);
 				mostrarRegistro(pos);
 			}
+			}
 		}
 
 		private void rbtn2_CheckedChanged(object sender, EventArgs e)
 		{
+			if(hayRegistros()){
 			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 			if (rbtn2.Checked == Enabled)
 			{
@@ -280,10 +301,12 @@ namespace CuestionarioSistemasInformacion
 				pos = devolverPosicionAleatoria(totalRegistros);
 				mostrarRegistro(pos);
 			}
+			}
 		}
 
 		private void rbtn3_CheckedChanged(object sender, EventArgs e)
 		{
+			if(hayRegistros()){
 			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 			if (rbtn3.Checked == Enabled)
 			{
@@ -300,10 +323,12 @@ namespace CuestionarioSistemasInformacion
 				pos = devolverPosicionAleatoria(totalRegistros);
 				mostrarRegistro(pos);
 			}
+			}
 		}
 
 		private void rbtn4_CheckedChanged(object sender, EventArgs e)
 		{
+			if(hayRegistros()){
 			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 			if (rbtn4.Checked == Enabled)
 			{
@@ -319,6 +344,7 @@ namespace CuestionarioSistemasInformacion
 				//}
 				pos = devolverPosicionAleatoria(totalRegistros);
 				mostrarRegistro(pos);
+			}
 			}
 		}
 
@@ -354,7 +380,7 @@ namespace CuestionarioSistemasInformacion
 				pos = devolverPosicionAleatoria(totalRegistros);
 				mostrarRegistro(pos);
 						}
-				if (pos==1)
+				if (pos==0)
 				{
 					//eliminamos el registro en la posicion
 					dsCuestionario.Tables["Cuestionario"].Rows[pos].Delete();
@@ -367,7 +393,11 @@ namespace CuestionarioSistemasInformacion
 						totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 						pos = devolverPosicionAleatoria(totalRegistros);
 						mostrarRegistro(pos);
+					}else
+					{
+							limpiarLabelPreguntas();
 					}
+
 				}
 			}
 			}
@@ -376,11 +406,19 @@ namespace CuestionarioSistemasInformacion
 
 		//Boton de evaluar
 		private void button1_Click(object sender, EventArgs e)
-		{
-			totalPreguntasEvaluacion =int.Parse(InputBox("Introduzca cuantas preguntas desea contestar"));
-			for (int i = 0; i < totalPreguntasEvaluacion; i++)
+		{ 
+			try
 			{
-
+				totalPreguntasEvaluacion =int.Parse(InputBox("Introduzca cuantas preguntas desea contestar"));
+				for (int i = 0; i < totalPreguntasEvaluacion; i++)
+				{
+					preguntasEvaluacion=0+1;
+				}
+				
+			}
+			catch
+			{
+				MessageBox.Show("ERROR COOMPRUEBA");
 			}
 		}
 
