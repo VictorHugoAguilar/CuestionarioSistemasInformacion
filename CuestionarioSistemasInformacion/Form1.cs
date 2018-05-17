@@ -41,7 +41,7 @@ namespace CuestionarioSistemasInformacion
             con = new System.Data.OleDb.OleDbConnection();
 
             //Le pasamos la ruta de la conexión
-            con.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:/Users/Victor/source/repos/CuestionarioSistemasInformacion/Recursos/Database1.accdb";
+            con.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:/Users/Coquis/Source/Repos/CuestionarioSistemasInformacion/Recursos/Database1.accdb";
 
             //Abrimos la conexión
             con.Open();
@@ -97,8 +97,15 @@ namespace CuestionarioSistemasInformacion
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if (pos < totalRegistros)
+            if (pos < totalRegistros-1)
                 pos++;
+			mostrarRegistro(pos);
         }
-    }
+
+		private void btnAñadirPregunta_Click(object sender, EventArgs e)
+		{
+			AnadirPregunta Anadir = new AnadirPregunta();
+			Anadir.ShowDialog();
+		}
+	}
 }
