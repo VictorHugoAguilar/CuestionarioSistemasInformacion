@@ -126,6 +126,15 @@ namespace CuestionarioSistemasInformacion
 
 		}
 
+		//creamos un metodo que nos devuelve si hay registros en la tabla
+		private bool hayRegistros()
+		{
+			bool comprueba=false;
+			totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
+			if(totalRegistros>0)
+				comprueba=true;
+			return comprueba;
+		}
 
 		private void lblPregunta1_Click(object sender, EventArgs e)
 		{
@@ -317,6 +326,9 @@ namespace CuestionarioSistemasInformacion
 		//Boton que elimina preguntas
 		private void btnEliminarPregunta_Click(object sender, EventArgs e)
 		{
+			if(!hayRegistros())
+				MessageBox.Show("No hay registros");
+			else{
 			DialogResult deseaEliminar = MessageBox.Show("Esta seguro que desea elimnar el registro",
 				"Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (deseaEliminar == DialogResult.Yes)
@@ -324,6 +336,10 @@ namespace CuestionarioSistemasInformacion
 				//reconectamos con la base de datos
 				System.Data.OleDb.OleDbCommandBuilder cb;
 				cb = new System.Data.OleDb.OleDbCommandBuilder(da);
+
+				MessageBox.Show(pos.ToString());
+				
+				if(pos>1){
 
 				//eliminamos el registro en la posicion
 				dsCuestionario.Tables["Cuestionario"].Rows[pos].Delete();
@@ -337,6 +353,23 @@ namespace CuestionarioSistemasInformacion
 				//mostramos una posicion aleatoria
 				pos = devolverPosicionAleatoria(totalRegistros);
 				mostrarRegistro(pos);
+						}
+				if (pos==1)
+				{
+					//eliminamos el registro en la posicion
+					dsCuestionario.Tables["Cuestionario"].Rows[pos].Delete();
+					
+					//actualizamos la base de datos el registro de la tabla
+					da.Update(dsCuestionario, "Cuestionario");
+
+					if(hayRegistros())
+					{
+						totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
+						pos = devolverPosicionAleatoria(totalRegistros);
+						mostrarRegistro(pos);
+					}
+				}
+			}
 			}
 		}
 
