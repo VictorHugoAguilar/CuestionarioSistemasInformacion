@@ -114,10 +114,8 @@ namespace CuestionarioSistemasInformacion
 				//marcador
 				lblPuntuacionCorrecta.Text = respuestasCorrectas.ToString();
 				lblPuntuacionIncorrecta.Text = respuestasIncorrectas.ToString();
-				if (respuestasCorrectas >= 1 && respuestasIncorrectas >= 1)
-					totalNota = respuestasCorrectas - respuestasIncorrectas * 1.33;
-				else
-					totalNota = respuestasCorrectas;
+
+				CalculaNotaPorcentaje();
 
 				lblPuntuacionTotal.Text = totalNota.ToString();
 
@@ -134,6 +132,37 @@ namespace CuestionarioSistemasInformacion
 				limpiarLabelPreguntas();
 			}
 
+		}
+
+		//metodo que calcula la nota en porcentaje
+		private void CalculaNotaPorcentaje()
+		{
+			if (respuestasCorrectas >= 1 && respuestasIncorrectas >= 1)
+			{
+				int variableCorrectas = (respuestasCorrectas * 100) / (preguntasContestadas - preguntasContestadasMalQuitanPuntos());
+				totalNota = variableCorrectas;
+			}
+			else
+			{
+				if (respuestasCorrectas > 0)
+				{
+					int variablecalcular = (respuestasCorrectas * 100) / preguntasContestadas;
+					totalNota = variablecalcular;
+				}
+			}
+		}
+
+		//metodo que devuelve el valor de contestadas mal a restar
+		private int preguntasContestadasMalQuitanPuntos()
+		{
+			int acumulador = 0;
+			int variableSacada = 0;
+			if (respuestasIncorrectas >= 3)
+			{
+				variableSacada = respuestasIncorrectas / 3;
+				acumulador = variableSacada;
+			}
+			return acumulador;
 		}
 
 		//creamos un método que limpie los contenidos de los label

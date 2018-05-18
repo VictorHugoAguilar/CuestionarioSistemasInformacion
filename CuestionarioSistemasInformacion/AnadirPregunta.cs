@@ -168,5 +168,10 @@ namespace CuestionarioSistemasInformacion
 			}
 			return comprueba;
 		}
+
+		private void lblRespuesta3_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

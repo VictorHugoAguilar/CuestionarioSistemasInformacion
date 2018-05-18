@@ -47,10 +47,10 @@
 			// 
 			// btnAnadiNuevaPregunta
 			// 
-			this.btnAnadiNuevaPregunta.Location = new System.Drawing.Point(14, 227);
+			this.btnAnadiNuevaPregunta.Location = new System.Drawing.Point(18, 402);
 			this.btnAnadiNuevaPregunta.Margin = new System.Windows.Forms.Padding(2);
 			this.btnAnadiNuevaPregunta.Name = "btnAnadiNuevaPregunta";
-			this.btnAnadiNuevaPregunta.Size = new System.Drawing.Size(76, 32);
+			this.btnAnadiNuevaPregunta.Size = new System.Drawing.Size(130, 32);
 			this.btnAnadiNuevaPregunta.TabIndex = 8;
 			this.btnAnadiNuevaPregunta.Text = "Añadir";
 			this.btnAnadiNuevaPregunta.UseVisualStyleBackColor = true;
@@ -58,10 +58,10 @@
 			// 
 			// btnGuardar
 			// 
-			this.btnGuardar.Location = new System.Drawing.Point(109, 227);
+			this.btnGuardar.Location = new System.Drawing.Point(161, 402);
 			this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnGuardar.Name = "btnGuardar";
-			this.btnGuardar.Size = new System.Drawing.Size(76, 32);
+			this.btnGuardar.Size = new System.Drawing.Size(130, 32);
 			this.btnGuardar.TabIndex = 7;
 			this.btnGuardar.Text = "Guardar";
 			this.btnGuardar.UseVisualStyleBackColor = true;
@@ -69,17 +69,19 @@
 			// 
 			// txtPregunta
 			// 
-			this.txtPregunta.Location = new System.Drawing.Point(90, 29);
+			this.txtPregunta.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtPregunta.Location = new System.Drawing.Point(90, 20);
 			this.txtPregunta.Margin = new System.Windows.Forms.Padding(2);
 			this.txtPregunta.Multiline = true;
 			this.txtPregunta.Name = "txtPregunta";
-			this.txtPregunta.Size = new System.Drawing.Size(398, 18);
+			this.txtPregunta.Size = new System.Drawing.Size(666, 37);
 			this.txtPregunta.TabIndex = 1;
 			// 
 			// txtRespuestaCorrecta
 			// 
-			this.txtRespuestaCorrecta.Location = new System.Drawing.Point(116, 178);
+			this.txtRespuestaCorrecta.Location = new System.Drawing.Point(116, 356);
 			this.txtRespuestaCorrecta.Margin = new System.Windows.Forms.Padding(2);
+			this.txtRespuestaCorrecta.Multiline = true;
 			this.txtRespuestaCorrecta.Name = "txtRespuestaCorrecta";
 			this.txtRespuestaCorrecta.Size = new System.Drawing.Size(52, 20);
 			this.txtRespuestaCorrecta.TabIndex = 6;
@@ -87,7 +89,7 @@
 			// lblAnadirPregunta
 			// 
 			this.lblAnadirPregunta.AutoSize = true;
-			this.lblAnadirPregunta.Location = new System.Drawing.Point(28, 32);
+			this.lblAnadirPregunta.Location = new System.Drawing.Point(28, 20);
 			this.lblAnadirPregunta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblAnadirPregunta.Name = "lblAnadirPregunta";
 			this.lblAnadirPregunta.Size = new System.Drawing.Size(50, 13);
@@ -97,7 +99,7 @@
 			// lblRespuestaCorrecta
 			// 
 			this.lblRespuestaCorrecta.AutoSize = true;
-			this.lblRespuestaCorrecta.Location = new System.Drawing.Point(11, 181);
+			this.lblRespuestaCorrecta.Location = new System.Drawing.Point(11, 356);
 			this.lblRespuestaCorrecta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuestaCorrecta.Name = "lblRespuestaCorrecta";
 			this.lblRespuestaCorrecta.Size = new System.Drawing.Size(101, 13);
@@ -107,7 +109,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(11, 72);
+			this.label3.Location = new System.Drawing.Point(11, 70);
 			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(67, 13);
@@ -117,26 +119,28 @@
 			// 
 			// txtRespuesta1
 			// 
+			this.txtRespuesta1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtRespuesta1.Location = new System.Drawing.Point(90, 70);
 			this.txtRespuesta1.Margin = new System.Windows.Forms.Padding(2);
 			this.txtRespuesta1.Multiline = true;
 			this.txtRespuesta1.Name = "txtRespuesta1";
-			this.txtRespuesta1.Size = new System.Drawing.Size(398, 18);
+			this.txtRespuesta1.Size = new System.Drawing.Size(666, 60);
 			this.txtRespuesta1.TabIndex = 2;
 			// 
 			// txtRespuesta2
 			// 
-			this.txtRespuesta2.Location = new System.Drawing.Point(90, 98);
+			this.txtRespuesta2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtRespuesta2.Location = new System.Drawing.Point(90, 137);
 			this.txtRespuesta2.Margin = new System.Windows.Forms.Padding(2);
 			this.txtRespuesta2.Multiline = true;
 			this.txtRespuesta2.Name = "txtRespuesta2";
-			this.txtRespuesta2.Size = new System.Drawing.Size(398, 18);
+			this.txtRespuesta2.Size = new System.Drawing.Size(666, 60);
 			this.txtRespuesta2.TabIndex = 3;
 			// 
 			// lblRespuesta2
 			// 
 			this.lblRespuesta2.AutoSize = true;
-			this.lblRespuesta2.Location = new System.Drawing.Point(11, 100);
+			this.lblRespuesta2.Location = new System.Drawing.Point(11, 137);
 			this.lblRespuesta2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta2.Name = "lblRespuesta2";
 			this.lblRespuesta2.Size = new System.Drawing.Size(67, 13);
@@ -145,36 +149,39 @@
 			// 
 			// txtRespuesta3
 			// 
-			this.txtRespuesta3.Location = new System.Drawing.Point(90, 123);
+			this.txtRespuesta3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtRespuesta3.Location = new System.Drawing.Point(90, 205);
 			this.txtRespuesta3.Margin = new System.Windows.Forms.Padding(2);
 			this.txtRespuesta3.Multiline = true;
 			this.txtRespuesta3.Name = "txtRespuesta3";
-			this.txtRespuesta3.Size = new System.Drawing.Size(398, 18);
+			this.txtRespuesta3.Size = new System.Drawing.Size(666, 60);
 			this.txtRespuesta3.TabIndex = 4;
 			// 
 			// lblRespuesta3
 			// 
 			this.lblRespuesta3.AutoSize = true;
-			this.lblRespuesta3.Location = new System.Drawing.Point(11, 124);
+			this.lblRespuesta3.Location = new System.Drawing.Point(11, 207);
 			this.lblRespuesta3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta3.Name = "lblRespuesta3";
 			this.lblRespuesta3.Size = new System.Drawing.Size(67, 13);
 			this.lblRespuesta3.TabIndex = 13;
 			this.lblRespuesta3.Text = "Respuesta 3";
+			this.lblRespuesta3.Click += new System.EventHandler(this.lblRespuesta3_Click);
 			// 
 			// txtRespuesta4
 			// 
-			this.txtRespuesta4.Location = new System.Drawing.Point(90, 148);
+			this.txtRespuesta4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtRespuesta4.Location = new System.Drawing.Point(90, 273);
 			this.txtRespuesta4.Margin = new System.Windows.Forms.Padding(2);
 			this.txtRespuesta4.Multiline = true;
 			this.txtRespuesta4.Name = "txtRespuesta4";
-			this.txtRespuesta4.Size = new System.Drawing.Size(398, 18);
+			this.txtRespuesta4.Size = new System.Drawing.Size(666, 60);
 			this.txtRespuesta4.TabIndex = 5;
 			// 
 			// lblRespuesta4
 			// 
 			this.lblRespuesta4.AutoSize = true;
-			this.lblRespuesta4.Location = new System.Drawing.Point(11, 150);
+			this.lblRespuesta4.Location = new System.Drawing.Point(11, 273);
 			this.lblRespuesta4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta4.Name = "lblRespuesta4";
 			this.lblRespuesta4.Size = new System.Drawing.Size(67, 13);
@@ -183,7 +190,7 @@
 			// 
 			// btnVolver
 			// 
-			this.btnVolver.Location = new System.Drawing.Point(408, 227);
+			this.btnVolver.Location = new System.Drawing.Point(680, 402);
 			this.btnVolver.Margin = new System.Windows.Forms.Padding(2);
 			this.btnVolver.Name = "btnVolver";
 			this.btnVolver.Size = new System.Drawing.Size(76, 32);
@@ -197,7 +204,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-			this.ClientSize = new System.Drawing.Size(500, 280);
+			this.ClientSize = new System.Drawing.Size(785, 461);
 			this.Controls.Add(this.btnVolver);
 			this.Controls.Add(this.txtRespuesta4);
 			this.Controls.Add(this.lblRespuesta4);
@@ -227,18 +234,18 @@
 
         private System.Windows.Forms.Button btnAnadiNuevaPregunta;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox txtPregunta;
         private System.Windows.Forms.TextBox txtRespuestaCorrecta;
         private System.Windows.Forms.Label lblAnadirPregunta;
         private System.Windows.Forms.Label lblRespuestaCorrecta;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtRespuesta1;
-        private System.Windows.Forms.TextBox txtRespuesta2;
         private System.Windows.Forms.Label lblRespuesta2;
-        private System.Windows.Forms.TextBox txtRespuesta3;
         private System.Windows.Forms.Label lblRespuesta3;
-        private System.Windows.Forms.TextBox txtRespuesta4;
         private System.Windows.Forms.Label lblRespuesta4;
         private System.Windows.Forms.Button btnVolver;
-    }
+		private System.Windows.Forms.TextBox txtPregunta;
+		private System.Windows.Forms.TextBox txtRespuesta1;
+		private System.Windows.Forms.TextBox txtRespuesta2;
+		private System.Windows.Forms.TextBox txtRespuesta3;
+		private System.Windows.Forms.TextBox txtRespuesta4;
+	}
 }
