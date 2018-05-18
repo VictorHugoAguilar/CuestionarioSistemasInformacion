@@ -464,24 +464,6 @@ namespace CuestionarioSistemasInformacion
 		}
 
 
-		//Boton de evaluar
-		private void button1_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				totalPreguntasEvaluacion = int.Parse(InputBox("Introduzca cuantas preguntas desea contestar"));
-				for (int i = 0; i < totalPreguntasEvaluacion; i++)
-				{
-					preguntasEvaluacion = 0 + 1;
-				}
-
-			}
-			catch
-			{
-				MessageBox.Show("ERROR COOMPRUEBA");
-			}
-		}
-
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
 
