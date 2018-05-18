@@ -63,7 +63,7 @@ namespace CuestionarioSistemasInformacion
 			con = new System.Data.OleDb.OleDbConnection();
 
 			//Le pasamos la ruta de la conexión
-			con.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:/Users/Coquis/Source/Repos/Nueva carpeta/CuestionarioSistemasInformacion/Recursos/Database1.accdb";
+			con.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:/Users/Coquis/Source/Repos/VersionAlpha/CuestionarioSistemasInformacion/Recursos/Database1.accdb";
 
 			//Abrimos la conexión
 			con.Open();
