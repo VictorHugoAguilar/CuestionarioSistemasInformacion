@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cuestionario));
 			this.btnSiguiente = new System.Windows.Forms.Button();
 			this.lblRespuesta1 = new System.Windows.Forms.Label();
 			this.grpPregunta = new System.Windows.Forms.GroupBox();
+			this.ptbRespuesta4Mal = new System.Windows.Forms.PictureBox();
+			this.ptbRespuesta3Mal = new System.Windows.Forms.PictureBox();
+			this.ptbRespuesta2Mal = new System.Windows.Forms.PictureBox();
+			this.ptbRespuesta1Mal = new System.Windows.Forms.PictureBox();
+			this.ptbRespuesta4Bien = new System.Windows.Forms.PictureBox();
+			this.ptbRespuesta3Bien = new System.Windows.Forms.PictureBox();
+			this.ptbRespuesta2Bien = new System.Windows.Forms.PictureBox();
+			this.ptbRespuesta1Bien = new System.Windows.Forms.PictureBox();
 			this.lblPregunta = new System.Windows.Forms.Label();
 			this.rbtn4 = new System.Windows.Forms.RadioButton();
 			this.lblRespuesta4 = new System.Windows.Forms.Label();
@@ -54,8 +63,15 @@
 			this.lblRegistrosprimero = new System.Windows.Forms.Label();
 			this.lblRegistrode = new System.Windows.Forms.Label();
 			this.lblRegistro = new System.Windows.Forms.Label();
-			this.btnEvaluar = new System.Windows.Forms.Button();
 			this.grpPregunta.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta4Mal)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta3Mal)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta2Mal)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta1Mal)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta4Bien)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta3Bien)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta2Bien)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta1Bien)).BeginInit();
 			this.grpPuntuacion.SuspendLayout();
 			this.grpTotal.SuspendLayout();
 			this.SuspendLayout();
@@ -74,7 +90,7 @@
 			// lblRespuesta1
 			// 
 			this.lblRespuesta1.AutoSize = true;
-			this.lblRespuesta1.Location = new System.Drawing.Point(48, 102);
+			this.lblRespuesta1.Location = new System.Drawing.Point(73, 102);
 			this.lblRespuesta1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta1.Name = "lblRespuesta1";
 			this.lblRespuesta1.Size = new System.Drawing.Size(91, 13);
@@ -84,6 +100,14 @@
 			// 
 			// grpPregunta
 			// 
+			this.grpPregunta.Controls.Add(this.ptbRespuesta4Mal);
+			this.grpPregunta.Controls.Add(this.ptbRespuesta3Mal);
+			this.grpPregunta.Controls.Add(this.ptbRespuesta2Mal);
+			this.grpPregunta.Controls.Add(this.ptbRespuesta1Mal);
+			this.grpPregunta.Controls.Add(this.ptbRespuesta4Bien);
+			this.grpPregunta.Controls.Add(this.ptbRespuesta3Bien);
+			this.grpPregunta.Controls.Add(this.ptbRespuesta2Bien);
+			this.grpPregunta.Controls.Add(this.ptbRespuesta1Bien);
 			this.grpPregunta.Controls.Add(this.lblPregunta);
 			this.grpPregunta.Controls.Add(this.rbtn4);
 			this.grpPregunta.Controls.Add(this.btnSiguiente);
@@ -102,6 +126,96 @@
 			this.grpPregunta.TabIndex = 2;
 			this.grpPregunta.TabStop = false;
 			this.grpPregunta.Text = "Pregunta";
+			this.grpPregunta.Enter += new System.EventHandler(this.grpPregunta_Enter);
+			// 
+			// ptbRespuesta4Mal
+			// 
+			this.ptbRespuesta4Mal.BackColor = System.Drawing.Color.Transparent;
+			this.ptbRespuesta4Mal.Image = ((System.Drawing.Image)(resources.GetObject("ptbRespuesta4Mal.Image")));
+			this.ptbRespuesta4Mal.Location = new System.Drawing.Point(3, 303);
+			this.ptbRespuesta4Mal.Name = "ptbRespuesta4Mal";
+			this.ptbRespuesta4Mal.Size = new System.Drawing.Size(35, 30);
+			this.ptbRespuesta4Mal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.ptbRespuesta4Mal.TabIndex = 17;
+			this.ptbRespuesta4Mal.TabStop = false;
+			this.ptbRespuesta4Mal.Visible = false;
+			// 
+			// ptbRespuesta3Mal
+			// 
+			this.ptbRespuesta3Mal.BackColor = System.Drawing.Color.Transparent;
+			this.ptbRespuesta3Mal.Image = ((System.Drawing.Image)(resources.GetObject("ptbRespuesta3Mal.Image")));
+			this.ptbRespuesta3Mal.Location = new System.Drawing.Point(3, 230);
+			this.ptbRespuesta3Mal.Name = "ptbRespuesta3Mal";
+			this.ptbRespuesta3Mal.Size = new System.Drawing.Size(35, 30);
+			this.ptbRespuesta3Mal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.ptbRespuesta3Mal.TabIndex = 16;
+			this.ptbRespuesta3Mal.TabStop = false;
+			this.ptbRespuesta3Mal.Visible = false;
+			// 
+			// ptbRespuesta2Mal
+			// 
+			this.ptbRespuesta2Mal.BackColor = System.Drawing.Color.Transparent;
+			this.ptbRespuesta2Mal.Image = ((System.Drawing.Image)(resources.GetObject("ptbRespuesta2Mal.Image")));
+			this.ptbRespuesta2Mal.Location = new System.Drawing.Point(3, 162);
+			this.ptbRespuesta2Mal.Name = "ptbRespuesta2Mal";
+			this.ptbRespuesta2Mal.Size = new System.Drawing.Size(35, 30);
+			this.ptbRespuesta2Mal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.ptbRespuesta2Mal.TabIndex = 15;
+			this.ptbRespuesta2Mal.TabStop = false;
+			this.ptbRespuesta2Mal.Visible = false;
+			// 
+			// ptbRespuesta1Mal
+			// 
+			this.ptbRespuesta1Mal.BackColor = System.Drawing.Color.Transparent;
+			this.ptbRespuesta1Mal.Image = ((System.Drawing.Image)(resources.GetObject("ptbRespuesta1Mal.Image")));
+			this.ptbRespuesta1Mal.Location = new System.Drawing.Point(3, 90);
+			this.ptbRespuesta1Mal.Name = "ptbRespuesta1Mal";
+			this.ptbRespuesta1Mal.Size = new System.Drawing.Size(35, 30);
+			this.ptbRespuesta1Mal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.ptbRespuesta1Mal.TabIndex = 14;
+			this.ptbRespuesta1Mal.TabStop = false;
+			this.ptbRespuesta1Mal.Visible = false;
+			// 
+			// ptbRespuesta4Bien
+			// 
+			this.ptbRespuesta4Bien.Image = ((System.Drawing.Image)(resources.GetObject("ptbRespuesta4Bien.Image")));
+			this.ptbRespuesta4Bien.Location = new System.Drawing.Point(7, 299);
+			this.ptbRespuesta4Bien.Name = "ptbRespuesta4Bien";
+			this.ptbRespuesta4Bien.Size = new System.Drawing.Size(27, 34);
+			this.ptbRespuesta4Bien.TabIndex = 13;
+			this.ptbRespuesta4Bien.TabStop = false;
+			this.ptbRespuesta4Bien.Visible = false;
+			// 
+			// ptbRespuesta3Bien
+			// 
+			this.ptbRespuesta3Bien.Image = ((System.Drawing.Image)(resources.GetObject("ptbRespuesta3Bien.Image")));
+			this.ptbRespuesta3Bien.Location = new System.Drawing.Point(7, 226);
+			this.ptbRespuesta3Bien.Name = "ptbRespuesta3Bien";
+			this.ptbRespuesta3Bien.Size = new System.Drawing.Size(27, 34);
+			this.ptbRespuesta3Bien.TabIndex = 12;
+			this.ptbRespuesta3Bien.TabStop = false;
+			this.ptbRespuesta3Bien.Visible = false;
+			// 
+			// ptbRespuesta2Bien
+			// 
+			this.ptbRespuesta2Bien.Image = ((System.Drawing.Image)(resources.GetObject("ptbRespuesta2Bien.Image")));
+			this.ptbRespuesta2Bien.Location = new System.Drawing.Point(7, 158);
+			this.ptbRespuesta2Bien.Name = "ptbRespuesta2Bien";
+			this.ptbRespuesta2Bien.Size = new System.Drawing.Size(27, 34);
+			this.ptbRespuesta2Bien.TabIndex = 11;
+			this.ptbRespuesta2Bien.TabStop = false;
+			this.ptbRespuesta2Bien.Visible = false;
+			// 
+			// ptbRespuesta1Bien
+			// 
+			this.ptbRespuesta1Bien.Image = ((System.Drawing.Image)(resources.GetObject("ptbRespuesta1Bien.Image")));
+			this.ptbRespuesta1Bien.Location = new System.Drawing.Point(7, 90);
+			this.ptbRespuesta1Bien.Name = "ptbRespuesta1Bien";
+			this.ptbRespuesta1Bien.Size = new System.Drawing.Size(27, 34);
+			this.ptbRespuesta1Bien.TabIndex = 10;
+			this.ptbRespuesta1Bien.TabStop = false;
+			this.ptbRespuesta1Bien.Visible = false;
+			this.ptbRespuesta1Bien.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
 			// lblPregunta
 			// 
@@ -116,7 +230,7 @@
 			// rbtn4
 			// 
 			this.rbtn4.AutoSize = true;
-			this.rbtn4.Location = new System.Drawing.Point(18, 309);
+			this.rbtn4.Location = new System.Drawing.Point(43, 309);
 			this.rbtn4.Margin = new System.Windows.Forms.Padding(2);
 			this.rbtn4.Name = "rbtn4";
 			this.rbtn4.Size = new System.Drawing.Size(14, 13);
@@ -128,7 +242,7 @@
 			// lblRespuesta4
 			// 
 			this.lblRespuesta4.AutoSize = true;
-			this.lblRespuesta4.Location = new System.Drawing.Point(48, 310);
+			this.lblRespuesta4.Location = new System.Drawing.Point(73, 310);
 			this.lblRespuesta4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta4.Name = "lblRespuesta4";
 			this.lblRespuesta4.Size = new System.Drawing.Size(92, 13);
@@ -138,7 +252,7 @@
 			// rbtn3
 			// 
 			this.rbtn3.AutoSize = true;
-			this.rbtn3.Location = new System.Drawing.Point(18, 237);
+			this.rbtn3.Location = new System.Drawing.Point(43, 237);
 			this.rbtn3.Margin = new System.Windows.Forms.Padding(2);
 			this.rbtn3.Name = "rbtn3";
 			this.rbtn3.Size = new System.Drawing.Size(14, 13);
@@ -150,7 +264,7 @@
 			// lblRespuesta3
 			// 
 			this.lblRespuesta3.AutoSize = true;
-			this.lblRespuesta3.Location = new System.Drawing.Point(48, 238);
+			this.lblRespuesta3.Location = new System.Drawing.Point(73, 238);
 			this.lblRespuesta3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta3.Name = "lblRespuesta3";
 			this.lblRespuesta3.Size = new System.Drawing.Size(103, 13);
@@ -160,7 +274,7 @@
 			// rbtn2
 			// 
 			this.rbtn2.AutoSize = true;
-			this.rbtn2.Location = new System.Drawing.Point(18, 169);
+			this.rbtn2.Location = new System.Drawing.Point(43, 169);
 			this.rbtn2.Margin = new System.Windows.Forms.Padding(2);
 			this.rbtn2.Name = "rbtn2";
 			this.rbtn2.Size = new System.Drawing.Size(14, 13);
@@ -172,7 +286,7 @@
 			// lblRespuesta2
 			// 
 			this.lblRespuesta2.AutoSize = true;
-			this.lblRespuesta2.Location = new System.Drawing.Point(48, 170);
+			this.lblRespuesta2.Location = new System.Drawing.Point(73, 170);
 			this.lblRespuesta2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta2.Name = "lblRespuesta2";
 			this.lblRespuesta2.Size = new System.Drawing.Size(104, 13);
@@ -182,7 +296,7 @@
 			// rbtn1
 			// 
 			this.rbtn1.AutoSize = true;
-			this.rbtn1.Location = new System.Drawing.Point(18, 101);
+			this.rbtn1.Location = new System.Drawing.Point(43, 101);
 			this.rbtn1.Margin = new System.Windows.Forms.Padding(2);
 			this.rbtn1.Name = "rbtn1";
 			this.rbtn1.Size = new System.Drawing.Size(14, 13);
@@ -357,23 +471,11 @@
 			this.lblRegistro.TabIndex = 4;
 			this.lblRegistro.Text = "Contestadas";
 			// 
-			// btnEvaluar
-			// 
-			this.btnEvaluar.Location = new System.Drawing.Point(603, 474);
-			this.btnEvaluar.Margin = new System.Windows.Forms.Padding(2);
-			this.btnEvaluar.Name = "btnEvaluar";
-			this.btnEvaluar.Size = new System.Drawing.Size(162, 31);
-			this.btnEvaluar.TabIndex = 10;
-			this.btnEvaluar.Text = "Evaluar";
-			this.btnEvaluar.UseVisualStyleBackColor = true;
-			this.btnEvaluar.Click += new System.EventHandler(this.button1_Click);
-			// 
 			// Cuestionario
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1008, 561);
-			this.Controls.Add(this.btnEvaluar);
 			this.Controls.Add(this.grpTotal);
 			this.Controls.Add(this.btnComenzar);
 			this.Controls.Add(this.btnEliminarPregunta);
@@ -387,6 +489,14 @@
 			this.Load += new System.EventHandler(this.Cuestionario_Load);
 			this.grpPregunta.ResumeLayout(false);
 			this.grpPregunta.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta4Mal)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta3Mal)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta2Mal)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta1Mal)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta4Bien)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta3Bien)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta2Bien)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta1Bien)).EndInit();
 			this.grpPuntuacion.ResumeLayout(false);
 			this.grpPuntuacion.PerformLayout();
 			this.grpTotal.ResumeLayout(false);
@@ -423,7 +533,14 @@
 		private System.Windows.Forms.Label lblRegistrosprimero;
 		private System.Windows.Forms.Label lblRegistrode;
 		private System.Windows.Forms.Label lblRegistro;
-		private System.Windows.Forms.Button btnEvaluar;
+		private System.Windows.Forms.PictureBox ptbRespuesta1Bien;
+		private System.Windows.Forms.PictureBox ptbRespuesta4Bien;
+		private System.Windows.Forms.PictureBox ptbRespuesta3Bien;
+		private System.Windows.Forms.PictureBox ptbRespuesta2Bien;
+		private System.Windows.Forms.PictureBox ptbRespuesta1Mal;
+		private System.Windows.Forms.PictureBox ptbRespuesta4Mal;
+		private System.Windows.Forms.PictureBox ptbRespuesta3Mal;
+		private System.Windows.Forms.PictureBox ptbRespuesta2Mal;
 	}
 }
 

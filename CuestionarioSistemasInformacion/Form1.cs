@@ -93,36 +93,43 @@ namespace CuestionarioSistemasInformacion
 		//Creamos un método que nos muestra donde estamos situados
 		private void mostrarRegistro(int pos)
 		{
-			if(hayRegistros()){
-			//Objeto que nos permite recoger un registro de la tabla
-			DataRow dRegistro;
+			if (hayRegistros())
+			{
+				//deseleccionamos los checked
+				DeseleccionarRadioButton();
 
-			//Cogemos el registro en la posicion de la tabla cuestionario
-			dRegistro = dsCuestionario.Tables["Cuestionario"].Rows[pos];
+				//Objeto que nos permite recoger un registro de la tabla
+				DataRow dRegistro;
 
-			//Cogemos el valor de cada una de las columnas del registro 
-			//y lo pasamos al labelbox correspondiente
+				//Cogemos el registro en la posicion de la tabla cuestionario
+				dRegistro = dsCuestionario.Tables["Cuestionario"].Rows[pos];
 
-			lblPregunta.Text = dRegistro[1].ToString();
-			lblRespuesta1.Text = dRegistro[2].ToString();
-			lblRespuesta2.Text = dRegistro[3].ToString();
-			lblRespuesta3.Text = dRegistro[4].ToString();
-			lblRespuesta4.Text = dRegistro[5].ToString();
+				//Cogemos el valor de cada una de las columnas del registro 
+				//y lo pasamos al labelbox correspondiente
 
-			//marcador
-			lblPuntuacionCorrecta.Text = respuestasCorrectas.ToString();
-			lblPuntuacionIncorrecta.Text = respuestasIncorrectas.ToString();
-			if (respuestasCorrectas >= 1 && respuestasIncorrectas >= 1)
-				totalNota = respuestasCorrectas - respuestasIncorrectas * 1.33;
-			else
-				totalNota = respuestasCorrectas;
+				lblPregunta.Text = dRegistro[1].ToString();
+				lblRespuesta1.Text = dRegistro[2].ToString();
+				lblRespuesta2.Text = dRegistro[3].ToString();
+				lblRespuesta3.Text = dRegistro[4].ToString();
+				lblRespuesta4.Text = dRegistro[5].ToString();
 
-			lblPuntuacionTotal.Text = totalNota.ToString();
+				//marcador
+				lblPuntuacionCorrecta.Text = respuestasCorrectas.ToString();
+				lblPuntuacionIncorrecta.Text = respuestasIncorrectas.ToString();
+				if (respuestasCorrectas >= 1 && respuestasIncorrectas >= 1)
+					totalNota = respuestasCorrectas - respuestasIncorrectas * 1.33;
+				else
+					totalNota = respuestasCorrectas;
 
-			//label de control
-			lblRegistrosprimero.Text = preguntasContestadas.ToString();
-			preguntasContestadas++;
-			lblRegistroUltimo.Text = totalRegistros.ToString();
+				lblPuntuacionTotal.Text = totalNota.ToString();
+
+				//label de control
+				lblRegistrosprimero.Text = preguntasContestadas.ToString();
+				preguntasContestadas++;
+				lblRegistroUltimo.Text = totalRegistros.ToString();
+
+				//limpiamos siempre las picturebox
+				LimpiarPictureBox();
 			}
 			else
 			{
@@ -144,10 +151,10 @@ namespace CuestionarioSistemasInformacion
 		//creamos un metodo que nos devuelve si hay registros en la tabla
 		private bool hayRegistros()
 		{
-			bool comprueba=false;
+			bool comprueba = false;
 			totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-			if(totalRegistros>0)
-				comprueba=true;
+			if (totalRegistros > 0)
+				comprueba = true;
 			return comprueba;
 		}
 
@@ -258,93 +265,143 @@ namespace CuestionarioSistemasInformacion
 			rbtn4.Checked = false;
 		}
 
-		//al seleccionar un radiobuton damos paso al evento
-		private void rbtn1_CheckedChanged(object sender, EventArgs e)
+		//creamos un metodo que limpie los picturebox de la pantalla
+		private void LimpiarPictureBox()
 		{
-			if(hayRegistros()){
-			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-			if (rbtn1.Checked == Enabled)
-			{
-				bool respuesta = PreguntaContestada(pos);
-				if (respuesta)
-					respuestasCorrectas++;
-				if (!respuesta)
-					respuestasIncorrectas++;
+			ptbRespuesta1Bien.Visible = false;
+			ptbRespuesta2Bien.Visible = false;
+			ptbRespuesta3Bien.Visible = false;
+			ptbRespuesta4Bien.Visible = false;
+			ptbRespuesta1Mal.Visible = false;
+			ptbRespuesta2Mal.Visible = false;
+			ptbRespuesta3Mal.Visible = false;
+			ptbRespuesta4Mal.Visible = false;
 
-				//if (pos < totalRegistros - 1)
-				//{
-				DeseleccionarRadioButton();
-				//pos++;
-				//}
+		}
+
+		//creamos un metodo que nos pida si queremos continuar
+		private void deseaContinuar()
+		{
+			DialogResult continuar = MessageBox.Show("Desea Continuar", "Advertencia", MessageBoxButtons.YesNo,
+				MessageBoxIcon.Question);
+			if (continuar == DialogResult.Yes)
+			{
 				pos = devolverPosicionAleatoria(totalRegistros);
 				mostrarRegistro(pos);
 			}
+			else
+			{
+				MessageBox.Show("sultado\n\n" + "Contestadas: " + preguntasContestadas.ToString() + "\n" +
+					"Correctas: " + respuestasCorrectas.ToString() + "\n" +
+					"Incorrectas: " + respuestasIncorrectas.ToString() + "\n" +
+					"\n" +
+					"Total Promediado: " + totalNota.ToString()
+					);
+			}
+		}
+
+		//al seleccionar un radiobuton damos paso al evento
+		private void rbtn1_CheckedChanged(object sender, EventArgs e)
+		{
+			if (hayRegistros())
+			{
+				//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
+				if (rbtn1.Checked == Enabled)
+				{
+					bool respuesta = PreguntaContestada(pos);
+					if (respuesta)
+					{
+						ptbRespuesta1Bien.Visible = true;
+						respuestasCorrectas++;
+
+					}
+					if (!respuesta)
+					{
+						ptbRespuesta1Mal.Visible = true;
+						respuestasIncorrectas++;
+					}
+
+					//preguntamos si deseamos continuar
+					deseaContinuar();
+				}
 			}
 		}
 
 		private void rbtn2_CheckedChanged(object sender, EventArgs e)
 		{
-			if(hayRegistros()){
-			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-			if (rbtn2.Checked == Enabled)
+			if (hayRegistros())
 			{
-				bool respuesta = PreguntaContestada(pos);
-				if (respuesta)
-					respuestasCorrectas++;
-				if (!respuesta)
-					respuestasIncorrectas++;
-				//if (pos < totalRegistros - 1)
-				//{
-				DeseleccionarRadioButton();
-				//pos++;
-				//}
-				pos = devolverPosicionAleatoria(totalRegistros);
-				mostrarRegistro(pos);
-			}
+				//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
+				if (rbtn2.Checked == Enabled)
+				{
+					bool respuesta = PreguntaContestada(pos);
+					if (respuesta)
+					{
+						ptbRespuesta2Bien.Visible = true;
+						respuestasCorrectas++;
+
+					}
+					if (!respuesta)
+					{
+						ptbRespuesta2Mal.Visible = true;
+						respuestasIncorrectas++;
+					}
+
+					//preguntamos si deseamos continuar
+					deseaContinuar();
+				}
 			}
 		}
 
 		private void rbtn3_CheckedChanged(object sender, EventArgs e)
 		{
-			if(hayRegistros()){
-			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-			if (rbtn3.Checked == Enabled)
+			if (hayRegistros())
 			{
-				bool respuesta = PreguntaContestada(pos);
-				if (respuesta)
-					respuestasCorrectas++;
-				if (!respuesta)
-					respuestasIncorrectas++;
-				//if (pos < totalRegistros - 1)
-				//{
-				DeseleccionarRadioButton();
-				//pos++;
-				//}
-				pos = devolverPosicionAleatoria(totalRegistros);
-				mostrarRegistro(pos);
-			}
+				//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
+				if (rbtn3.Checked == Enabled)
+				{
+					bool respuesta = PreguntaContestada(pos);
+					if (respuesta)
+					{
+						ptbRespuesta3Bien.Visible = true;
+						respuestasCorrectas++;
+
+					}
+					if (!respuesta)
+					{
+						ptbRespuesta3Mal.Visible = true;
+						respuestasIncorrectas++;
+					}
+
+					//preguntamos si deseamos continuar
+					deseaContinuar();
+				}
 			}
 		}
 
 		private void rbtn4_CheckedChanged(object sender, EventArgs e)
 		{
-			if(hayRegistros()){
-			//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-			if (rbtn4.Checked == Enabled)
+			if (hayRegistros())
 			{
-				bool respuesta = PreguntaContestada(pos);
-				if (respuesta)
-					respuestasCorrectas++;
-				if (!respuesta)
-					respuestasIncorrectas++;
-				//if (pos < totalRegistros - 1)
-				//{
-				DeseleccionarRadioButton();
-				//pos++;
-				//}
-				pos = devolverPosicionAleatoria(totalRegistros);
-				mostrarRegistro(pos);
-			}
+				//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
+				if (rbtn4.Checked == Enabled)
+				{
+					bool respuesta = PreguntaContestada(pos);
+					if (respuesta)
+					{
+						ptbRespuesta4Bien.Visible = true;
+						respuestasCorrectas++;
+
+					}
+					if (!respuesta)
+					{
+						ptbRespuesta4Mal.Visible = true;
+						respuestasIncorrectas++;
+					}
+
+					//preguntamos si deseamos continuar
+					deseaContinuar();
+				}
 			}
 		}
 
@@ -352,69 +409,72 @@ namespace CuestionarioSistemasInformacion
 		//Boton que elimina preguntas
 		private void btnEliminarPregunta_Click(object sender, EventArgs e)
 		{
-			if(!hayRegistros())
+			if (!hayRegistros())
 				MessageBox.Show("No hay registros");
-			else{
-			DialogResult deseaEliminar = MessageBox.Show("Esta seguro que desea elimnar el registro",
-				"Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-			if (deseaEliminar == DialogResult.Yes)
+			else
 			{
-				//reconectamos con la base de datos
-				System.Data.OleDb.OleDbCommandBuilder cb;
-				cb = new System.Data.OleDb.OleDbCommandBuilder(da);
-
-				MessageBox.Show(pos.ToString());
-				
-				if(pos>1){
-
-				//eliminamos el registro en la posicion
-				dsCuestionario.Tables["Cuestionario"].Rows[pos].Delete();
-
-				//actualizamos la base de datos el registro de la tabla
-				da.Update(dsCuestionario, "Cuestionario");
-
-				//actualizamos el total de registros
-				totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-
-				//mostramos una posicion aleatoria
-				pos = devolverPosicionAleatoria(totalRegistros);
-				mostrarRegistro(pos);
-						}
-				if (pos==0)
+				DialogResult deseaEliminar = MessageBox.Show("Esta seguro que desea elimnar el registro",
+					"Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				if (deseaEliminar == DialogResult.Yes)
 				{
-					//eliminamos el registro en la posicion
-					dsCuestionario.Tables["Cuestionario"].Rows[pos].Delete();
-					
-					//actualizamos la base de datos el registro de la tabla
-					da.Update(dsCuestionario, "Cuestionario");
+					//reconectamos con la base de datos
+					System.Data.OleDb.OleDbCommandBuilder cb;
+					cb = new System.Data.OleDb.OleDbCommandBuilder(da);
 
-					if(hayRegistros())
+					MessageBox.Show(pos.ToString());
+
+					if (pos > 1)
 					{
+
+						//eliminamos el registro en la posicion
+						dsCuestionario.Tables["Cuestionario"].Rows[pos].Delete();
+
+						//actualizamos la base de datos el registro de la tabla
+						da.Update(dsCuestionario, "Cuestionario");
+
+						//actualizamos el total de registros
 						totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
+
+						//mostramos una posicion aleatoria
 						pos = devolverPosicionAleatoria(totalRegistros);
 						mostrarRegistro(pos);
-					}else
-					{
-							limpiarLabelPreguntas();
 					}
+					if (pos == 0)
+					{
+						//eliminamos el registro en la posicion
+						dsCuestionario.Tables["Cuestionario"].Rows[pos].Delete();
 
+						//actualizamos la base de datos el registro de la tabla
+						da.Update(dsCuestionario, "Cuestionario");
+
+						if (hayRegistros())
+						{
+							totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
+							pos = devolverPosicionAleatoria(totalRegistros);
+							mostrarRegistro(pos);
+						}
+						else
+						{
+							limpiarLabelPreguntas();
+						}
+
+					}
 				}
-			}
 			}
 		}
 
 
 		//Boton de evaluar
 		private void button1_Click(object sender, EventArgs e)
-		{ 
+		{
 			try
 			{
-				totalPreguntasEvaluacion =int.Parse(InputBox("Introduzca cuantas preguntas desea contestar"));
+				totalPreguntasEvaluacion = int.Parse(InputBox("Introduzca cuantas preguntas desea contestar"));
 				for (int i = 0; i < totalPreguntasEvaluacion; i++)
 				{
-					preguntasEvaluacion=0+1;
+					preguntasEvaluacion = 0 + 1;
 				}
-				
+
 			}
 			catch
 			{
@@ -422,9 +482,14 @@ namespace CuestionarioSistemasInformacion
 			}
 		}
 
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
 
+		}
 
+		private void grpPregunta_Enter(object sender, EventArgs e)
+		{
 
-
+		}
 	}
 }
