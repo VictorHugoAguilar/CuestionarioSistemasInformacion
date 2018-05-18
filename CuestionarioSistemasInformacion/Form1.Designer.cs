@@ -109,6 +109,7 @@
 			// 
 			// grpPregunta
 			// 
+			this.grpPregunta.BackColor = System.Drawing.Color.SkyBlue;
 			this.grpPregunta.Controls.Add(this.lblIndexN);
 			this.grpPregunta.Controls.Add(this.lblID);
 			this.grpPregunta.Controls.Add(this.ptbRespuesta4Mal);
@@ -128,6 +129,7 @@
 			this.grpPregunta.Controls.Add(this.lblRespuesta2);
 			this.grpPregunta.Controls.Add(this.rbtn1);
 			this.grpPregunta.Controls.Add(this.lblRespuesta1);
+			this.grpPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.grpPregunta.Location = new System.Drawing.Point(22, 34);
 			this.grpPregunta.Margin = new System.Windows.Forms.Padding(2);
 			this.grpPregunta.Name = "grpPregunta";
@@ -336,6 +338,7 @@
 			// 
 			// grpPuntuacion
 			// 
+			this.grpPuntuacion.BackColor = System.Drawing.Color.Transparent;
 			this.grpPuntuacion.Controls.Add(this.lblPuntuacionTotal);
 			this.grpPuntuacion.Controls.Add(this.lblPuntuacionIncorrecta);
 			this.grpPuntuacion.Controls.Add(this.lblPuntuacionCorrecta);
@@ -447,6 +450,7 @@
 			// 
 			// grpTotal
 			// 
+			this.grpTotal.BackColor = System.Drawing.Color.Transparent;
 			this.grpTotal.Controls.Add(this.lblRegistroUltimo);
 			this.grpTotal.Controls.Add(this.lblRegistrosprimero);
 			this.grpTotal.Controls.Add(this.lblRegistrode);
@@ -513,6 +517,7 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.BackColor = System.Drawing.Color.Transparent;
 			this.groupBox1.Controls.Add(this.btnAnterior);
 			this.groupBox1.Controls.Add(this.btnSiguiente);
 			this.groupBox1.Location = new System.Drawing.Point(25, 459);
@@ -524,6 +529,7 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.BackColor = System.Drawing.Color.Transparent;
 			this.groupBox2.Controls.Add(this.btnAñadirPregunta);
 			this.groupBox2.Controls.Add(this.btnEliminarPregunta);
 			this.groupBox2.Location = new System.Drawing.Point(277, 459);
@@ -535,6 +541,7 @@
 			// 
 			// groupBox3
 			// 
+			this.groupBox3.BackColor = System.Drawing.Color.Transparent;
 			this.groupBox3.Controls.Add(this.btnComenzar);
 			this.groupBox3.Location = new System.Drawing.Point(667, 459);
 			this.groupBox3.Name = "groupBox3";
@@ -547,6 +554,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.SkyBlue;
 			this.ClientSize = new System.Drawing.Size(1008, 589);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox2);
