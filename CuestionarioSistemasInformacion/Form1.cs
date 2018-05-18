@@ -50,13 +50,11 @@ namespace CuestionarioSistemasInformacion
 		private int respuestasIncorrectas = 0;
 		private double totalNota = 0;
 
+		//creamos una variable booleana de control de ejecucion del programa
+		private bool respuestaActivas = false;
+
 		//para el label de las contestadas
 		private int preguntasContestadas = 0;
-
-		//variables para la evaluacion
-		private int preguntasEvaluacion = 0;
-		private int totalPreguntasEvaluacion = 0;
-
 
 		private void Cuestionario_Load(object sender, EventArgs e)
 		{
@@ -83,8 +81,7 @@ namespace CuestionarioSistemasInformacion
 			totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
 
 			//Nos situamos en la primera posicion
-			pos = devolverPosicionAleatoria(totalRegistros);
-			mostrarRegistro(pos);
+			marcadoresEnZero();
 
 			//Cerramos la conexión
 			con.Close();
@@ -107,6 +104,7 @@ namespace CuestionarioSistemasInformacion
 				//Cogemos el valor de cada una de las columnas del registro 
 				//y lo pasamos al labelbox correspondiente
 
+				lblIndexN.Text = dRegistro[0].ToString();
 				lblPregunta.Text = dRegistro[1].ToString();
 				lblRespuesta1.Text = dRegistro[2].ToString();
 				lblRespuesta2.Text = dRegistro[3].ToString();
@@ -202,9 +200,10 @@ namespace CuestionarioSistemasInformacion
 		private void btnComenzar_Click(object sender, EventArgs e)
 		{
 			marcadoresEnZero();
+			DeseleccionarRadioButton();
+			respuestaActivas = true;
 			pos = devolverPosicionAleatoria(totalRegistros);
 			mostrarRegistro(pos);
-			DeseleccionarRadioButton();
 		}
 
 		//Creamos un metodo que nos suma si seleccionamos la opcion correcta 
@@ -291,7 +290,8 @@ namespace CuestionarioSistemasInformacion
 			}
 			else
 			{
-				MessageBox.Show("sultado\n\n" + "Contestadas: " + preguntasContestadas.ToString() + "\n" +
+				respuestaActivas = false;
+				MessageBox.Show("Resultado\n\n" + "Contestadas: " + preguntasContestadas.ToString() + "\n" +
 					"Correctas: " + respuestasCorrectas.ToString() + "\n" +
 					"Incorrectas: " + respuestasIncorrectas.ToString() + "\n" +
 					"\n" +
@@ -300,107 +300,116 @@ namespace CuestionarioSistemasInformacion
 			}
 		}
 
+
+
 		//al seleccionar un radiobuton damos paso al evento
 		private void rbtn1_CheckedChanged(object sender, EventArgs e)
 		{
-			if (hayRegistros())
+			if (respuestaActivas)
 			{
-				//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-				if (rbtn1.Checked == Enabled)
+				if (hayRegistros())
 				{
-					bool respuesta = PreguntaContestada(pos);
-					if (respuesta)
+					if (rbtn1.Checked == Enabled)
 					{
-						ptbRespuesta1Bien.Visible = true;
-						respuestasCorrectas++;
+						bool respuesta = PreguntaContestada(pos);
+						if (respuesta)
+						{
+							ptbRespuesta1Bien.Visible = true;
+							respuestasCorrectas++;
 
-					}
-					if (!respuesta)
-					{
-						ptbRespuesta1Mal.Visible = true;
-						respuestasIncorrectas++;
-					}
+						}
+						if (!respuesta)
+						{
+							ptbRespuesta1Mal.Visible = true;
+							respuestasIncorrectas++;
+						}
 
-					//preguntamos si deseamos continuar
-					deseaContinuar();
+						//preguntamos si deseamos continuar
+						deseaContinuar();
+					}
 				}
 			}
 		}
 
 		private void rbtn2_CheckedChanged(object sender, EventArgs e)
 		{
-			if (hayRegistros())
+			if (respuestaActivas)
 			{
-				//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-				if (rbtn2.Checked == Enabled)
+				if (hayRegistros())
 				{
-					bool respuesta = PreguntaContestada(pos);
-					if (respuesta)
+					if (rbtn2.Checked == Enabled)
 					{
-						ptbRespuesta2Bien.Visible = true;
-						respuestasCorrectas++;
+						bool respuesta = PreguntaContestada(pos);
+						if (respuesta)
+						{
+							ptbRespuesta2Bien.Visible = true;
+							respuestasCorrectas++;
 
-					}
-					if (!respuesta)
-					{
-						ptbRespuesta2Mal.Visible = true;
-						respuestasIncorrectas++;
-					}
+						}
+						if (!respuesta)
+						{
+							ptbRespuesta2Mal.Visible = true;
+							respuestasIncorrectas++;
+						}
 
-					//preguntamos si deseamos continuar
-					deseaContinuar();
+						deseaContinuar();
+					}
 				}
 			}
 		}
 
 		private void rbtn3_CheckedChanged(object sender, EventArgs e)
 		{
-			if (hayRegistros())
+			if (respuestaActivas)
 			{
-				//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-				if (rbtn3.Checked == Enabled)
+				if (hayRegistros())
 				{
-					bool respuesta = PreguntaContestada(pos);
-					if (respuesta)
+					if (rbtn3.Checked == Enabled)
 					{
-						ptbRespuesta3Bien.Visible = true;
-						respuestasCorrectas++;
+						bool respuesta = PreguntaContestada(pos);
+						if (respuesta)
+						{
+							ptbRespuesta3Bien.Visible = true;
+							respuestasCorrectas++;
 
-					}
-					if (!respuesta)
-					{
-						ptbRespuesta3Mal.Visible = true;
-						respuestasIncorrectas++;
-					}
+						}
+						if (!respuesta)
+						{
+							ptbRespuesta3Mal.Visible = true;
+							respuestasIncorrectas++;
+						}
 
-					//preguntamos si deseamos continuar
-					deseaContinuar();
+						//preguntamos si deseamos continuar
+						deseaContinuar();
+					}
 				}
 			}
 		}
 
 		private void rbtn4_CheckedChanged(object sender, EventArgs e)
 		{
-			if (hayRegistros())
+			if (respuestaActivas)
 			{
-				//totalRegistros = dsCuestionario.Tables["Cuestionario"].Rows.Count;
-				if (rbtn4.Checked == Enabled)
+				if (hayRegistros())
 				{
-					bool respuesta = PreguntaContestada(pos);
-					if (respuesta)
+					if (rbtn4.Checked == Enabled)
 					{
-						ptbRespuesta4Bien.Visible = true;
-						respuestasCorrectas++;
+						bool respuesta = PreguntaContestada(pos);
+						if (respuesta)
+						{
+							ptbRespuesta4Bien.Visible = true;
+							respuestasCorrectas++;
 
-					}
-					if (!respuesta)
-					{
-						ptbRespuesta4Mal.Visible = true;
-						respuestasIncorrectas++;
-					}
+						}
+						if (!respuesta)
+						{
+							ptbRespuesta4Mal.Visible = true;
+							respuestasIncorrectas++;
+						}
 
-					//preguntamos si deseamos continuar
-					deseaContinuar();
+						//preguntamos si deseamos continuar
+						deseaContinuar();
+					}
 				}
 			}
 		}
@@ -472,6 +481,16 @@ namespace CuestionarioSistemasInformacion
 		private void grpPregunta_Enter(object sender, EventArgs e)
 		{
 
+		}
+
+		private void btnAnterior_Click(object sender, EventArgs e)
+		{
+			if (hayRegistros())
+			{
+				if (pos > 0)
+					pos--;
+				mostrarRegistro(pos);
+			}
 		}
 	}
 }

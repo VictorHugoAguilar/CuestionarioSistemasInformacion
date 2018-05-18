@@ -63,6 +63,12 @@
 			this.lblRegistrosprimero = new System.Windows.Forms.Label();
 			this.lblRegistrode = new System.Windows.Forms.Label();
 			this.lblRegistro = new System.Windows.Forms.Label();
+			this.btnAnterior = new System.Windows.Forms.Button();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.lblID = new System.Windows.Forms.Label();
+			this.lblIndexN = new System.Windows.Forms.Label();
 			this.grpPregunta.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta4Mal)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta3Mal)).BeginInit();
@@ -74,11 +80,14 @@
 			((System.ComponentModel.ISupportInitialize)(this.ptbRespuesta1Bien)).BeginInit();
 			this.grpPuntuacion.SuspendLayout();
 			this.grpTotal.SuspendLayout();
+			this.groupBox1.SuspendLayout();
+			this.groupBox2.SuspendLayout();
+			this.groupBox3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// btnSiguiente
 			// 
-			this.btnSiguiente.Location = new System.Drawing.Point(18, 363);
+			this.btnSiguiente.Location = new System.Drawing.Point(119, 31);
 			this.btnSiguiente.Margin = new System.Windows.Forms.Padding(2);
 			this.btnSiguiente.Name = "btnSiguiente";
 			this.btnSiguiente.Size = new System.Drawing.Size(84, 31);
@@ -100,6 +109,8 @@
 			// 
 			// grpPregunta
 			// 
+			this.grpPregunta.Controls.Add(this.lblIndexN);
+			this.grpPregunta.Controls.Add(this.lblID);
 			this.grpPregunta.Controls.Add(this.ptbRespuesta4Mal);
 			this.grpPregunta.Controls.Add(this.ptbRespuesta3Mal);
 			this.grpPregunta.Controls.Add(this.ptbRespuesta2Mal);
@@ -110,7 +121,6 @@
 			this.grpPregunta.Controls.Add(this.ptbRespuesta1Bien);
 			this.grpPregunta.Controls.Add(this.lblPregunta);
 			this.grpPregunta.Controls.Add(this.rbtn4);
-			this.grpPregunta.Controls.Add(this.btnSiguiente);
 			this.grpPregunta.Controls.Add(this.lblRespuesta4);
 			this.grpPregunta.Controls.Add(this.rbtn3);
 			this.grpPregunta.Controls.Add(this.lblRespuesta3);
@@ -122,7 +132,7 @@
 			this.grpPregunta.Margin = new System.Windows.Forms.Padding(2);
 			this.grpPregunta.Name = "grpPregunta";
 			this.grpPregunta.Padding = new System.Windows.Forms.Padding(2);
-			this.grpPregunta.Size = new System.Drawing.Size(856, 416);
+			this.grpPregunta.Size = new System.Drawing.Size(856, 388);
 			this.grpPregunta.TabIndex = 2;
 			this.grpPregunta.TabStop = false;
 			this.grpPregunta.Text = "Pregunta";
@@ -385,7 +395,7 @@
 			// 
 			// btnAñadirPregunta
 			// 
-			this.btnAñadirPregunta.Location = new System.Drawing.Point(40, 474);
+			this.btnAñadirPregunta.Location = new System.Drawing.Point(15, 31);
 			this.btnAñadirPregunta.Margin = new System.Windows.Forms.Padding(2);
 			this.btnAñadirPregunta.Name = "btnAñadirPregunta";
 			this.btnAñadirPregunta.Size = new System.Drawing.Size(162, 31);
@@ -396,7 +406,7 @@
 			// 
 			// btnEliminarPregunta
 			// 
-			this.btnEliminarPregunta.Location = new System.Drawing.Point(231, 474);
+			this.btnEliminarPregunta.Location = new System.Drawing.Point(191, 31);
 			this.btnEliminarPregunta.Margin = new System.Windows.Forms.Padding(2);
 			this.btnEliminarPregunta.Name = "btnEliminarPregunta";
 			this.btnEliminarPregunta.Size = new System.Drawing.Size(162, 31);
@@ -407,7 +417,7 @@
 			// 
 			// btnComenzar
 			// 
-			this.btnComenzar.Location = new System.Drawing.Point(417, 474);
+			this.btnComenzar.Location = new System.Drawing.Point(29, 31);
 			this.btnComenzar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnComenzar.Name = "btnComenzar";
 			this.btnComenzar.Size = new System.Drawing.Size(162, 31);
@@ -426,7 +436,7 @@
 			this.grpTotal.Margin = new System.Windows.Forms.Padding(2);
 			this.grpTotal.Name = "grpTotal";
 			this.grpTotal.Padding = new System.Windows.Forms.Padding(2);
-			this.grpTotal.Size = new System.Drawing.Size(100, 181);
+			this.grpTotal.Size = new System.Drawing.Size(100, 153);
 			this.grpTotal.TabIndex = 10;
 			this.grpTotal.TabStop = false;
 			this.grpTotal.Text = "Contestadas";
@@ -471,15 +481,76 @@
 			this.lblRegistro.TabIndex = 4;
 			this.lblRegistro.Text = "Contestadas";
 			// 
+			// btnAnterior
+			// 
+			this.btnAnterior.Location = new System.Drawing.Point(18, 31);
+			this.btnAnterior.Margin = new System.Windows.Forms.Padding(2);
+			this.btnAnterior.Name = "btnAnterior";
+			this.btnAnterior.Size = new System.Drawing.Size(84, 31);
+			this.btnAnterior.TabIndex = 18;
+			this.btnAnterior.Text = "Anterior";
+			this.btnAnterior.UseVisualStyleBackColor = true;
+			this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.btnAnterior);
+			this.groupBox1.Controls.Add(this.btnSiguiente);
+			this.groupBox1.Location = new System.Drawing.Point(22, 434);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(231, 80);
+			this.groupBox1.TabIndex = 19;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Navegar Por las Preguntas";
+			// 
+			// groupBox2
+			// 
+			this.groupBox2.Controls.Add(this.btnAñadirPregunta);
+			this.groupBox2.Controls.Add(this.btnEliminarPregunta);
+			this.groupBox2.Location = new System.Drawing.Point(274, 434);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(367, 80);
+			this.groupBox2.TabIndex = 20;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Gestion Preguntas";
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Controls.Add(this.btnComenzar);
+			this.groupBox3.Location = new System.Drawing.Point(664, 434);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(214, 80);
+			this.groupBox3.TabIndex = 21;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "Partida";
+			// 
+			// lblID
+			// 
+			this.lblID.AutoSize = true;
+			this.lblID.Location = new System.Drawing.Point(815, 368);
+			this.lblID.Name = "lblID";
+			this.lblID.Size = new System.Drawing.Size(18, 13);
+			this.lblID.TabIndex = 12;
+			this.lblID.Text = "ID";
+			// 
+			// lblIndexN
+			// 
+			this.lblIndexN.AutoSize = true;
+			this.lblIndexN.Location = new System.Drawing.Point(833, 368);
+			this.lblIndexN.Name = "lblIndexN";
+			this.lblIndexN.Size = new System.Drawing.Size(19, 13);
+			this.lblIndexN.TabIndex = 18;
+			this.lblIndexN.Text = "00";
+			// 
 			// Cuestionario
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1008, 561);
+			this.ClientSize = new System.Drawing.Size(1008, 543);
+			this.Controls.Add(this.groupBox3);
+			this.Controls.Add(this.groupBox2);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.grpTotal);
-			this.Controls.Add(this.btnComenzar);
-			this.Controls.Add(this.btnEliminarPregunta);
-			this.Controls.Add(this.btnAñadirPregunta);
 			this.Controls.Add(this.grpPuntuacion);
 			this.Controls.Add(this.grpPregunta);
 			this.Margin = new System.Windows.Forms.Padding(2);
@@ -501,6 +572,9 @@
 			this.grpPuntuacion.PerformLayout();
 			this.grpTotal.ResumeLayout(false);
 			this.grpTotal.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox3.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -541,6 +615,12 @@
 		private System.Windows.Forms.PictureBox ptbRespuesta4Mal;
 		private System.Windows.Forms.PictureBox ptbRespuesta3Mal;
 		private System.Windows.Forms.PictureBox ptbRespuesta2Mal;
+		private System.Windows.Forms.Button btnAnterior;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.Label lblIndexN;
+		private System.Windows.Forms.Label lblID;
 	}
 }
 

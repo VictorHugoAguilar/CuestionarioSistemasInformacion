@@ -48,10 +48,10 @@
 			// btnAnadiNuevaPregunta
 			// 
 			this.btnAnadiNuevaPregunta.Location = new System.Drawing.Point(14, 227);
-			this.btnAnadiNuevaPregunta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnAnadiNuevaPregunta.Margin = new System.Windows.Forms.Padding(2);
 			this.btnAnadiNuevaPregunta.Name = "btnAnadiNuevaPregunta";
 			this.btnAnadiNuevaPregunta.Size = new System.Drawing.Size(76, 32);
-			this.btnAnadiNuevaPregunta.TabIndex = 0;
+			this.btnAnadiNuevaPregunta.TabIndex = 8;
 			this.btnAnadiNuevaPregunta.Text = "Añadir";
 			this.btnAnadiNuevaPregunta.UseVisualStyleBackColor = true;
 			this.btnAnadiNuevaPregunta.Click += new System.EventHandler(this.btnAnadiNuevaPregunta_Click);
@@ -59,10 +59,10 @@
 			// btnGuardar
 			// 
 			this.btnGuardar.Location = new System.Drawing.Point(109, 227);
-			this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
 			this.btnGuardar.Name = "btnGuardar";
 			this.btnGuardar.Size = new System.Drawing.Size(76, 32);
-			this.btnGuardar.TabIndex = 1;
+			this.btnGuardar.TabIndex = 7;
 			this.btnGuardar.Text = "Guardar";
 			this.btnGuardar.UseVisualStyleBackColor = true;
 			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -70,16 +70,16 @@
 			// txtPregunta
 			// 
 			this.txtPregunta.Location = new System.Drawing.Point(90, 29);
-			this.txtPregunta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtPregunta.Margin = new System.Windows.Forms.Padding(2);
 			this.txtPregunta.Multiline = true;
 			this.txtPregunta.Name = "txtPregunta";
 			this.txtPregunta.Size = new System.Drawing.Size(398, 18);
-			this.txtPregunta.TabIndex = 2;
+			this.txtPregunta.TabIndex = 1;
 			// 
 			// txtRespuestaCorrecta
 			// 
 			this.txtRespuestaCorrecta.Location = new System.Drawing.Point(116, 178);
-			this.txtRespuestaCorrecta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtRespuestaCorrecta.Margin = new System.Windows.Forms.Padding(2);
 			this.txtRespuestaCorrecta.Name = "txtRespuestaCorrecta";
 			this.txtRespuestaCorrecta.Size = new System.Drawing.Size(52, 20);
 			this.txtRespuestaCorrecta.TabIndex = 6;
@@ -91,7 +91,7 @@
 			this.lblAnadirPregunta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblAnadirPregunta.Name = "lblAnadirPregunta";
 			this.lblAnadirPregunta.Size = new System.Drawing.Size(50, 13);
-			this.lblAnadirPregunta.TabIndex = 7;
+			this.lblAnadirPregunta.TabIndex = 10;
 			this.lblAnadirPregunta.Text = "Pregunta";
 			// 
 			// lblRespuestaCorrecta
@@ -101,7 +101,7 @@
 			this.lblRespuestaCorrecta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuestaCorrecta.Name = "lblRespuestaCorrecta";
 			this.lblRespuestaCorrecta.Size = new System.Drawing.Size(101, 13);
-			this.lblRespuestaCorrecta.TabIndex = 8;
+			this.lblRespuestaCorrecta.TabIndex = 15;
 			this.lblRespuestaCorrecta.Text = "Respuesta Correcta";
 			// 
 			// label3
@@ -111,27 +111,27 @@
 			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(67, 13);
-			this.label3.TabIndex = 9;
+			this.label3.TabIndex = 11;
 			this.label3.Text = "Respuesta 1";
 			this.label3.Click += new System.EventHandler(this.label3_Click);
 			// 
 			// txtRespuesta1
 			// 
 			this.txtRespuesta1.Location = new System.Drawing.Point(90, 70);
-			this.txtRespuesta1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtRespuesta1.Margin = new System.Windows.Forms.Padding(2);
 			this.txtRespuesta1.Multiline = true;
 			this.txtRespuesta1.Name = "txtRespuesta1";
 			this.txtRespuesta1.Size = new System.Drawing.Size(398, 18);
-			this.txtRespuesta1.TabIndex = 13;
+			this.txtRespuesta1.TabIndex = 2;
 			// 
 			// txtRespuesta2
 			// 
 			this.txtRespuesta2.Location = new System.Drawing.Point(90, 98);
-			this.txtRespuesta2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtRespuesta2.Margin = new System.Windows.Forms.Padding(2);
 			this.txtRespuesta2.Multiline = true;
 			this.txtRespuesta2.Name = "txtRespuesta2";
 			this.txtRespuesta2.Size = new System.Drawing.Size(398, 18);
-			this.txtRespuesta2.TabIndex = 15;
+			this.txtRespuesta2.TabIndex = 3;
 			// 
 			// lblRespuesta2
 			// 
@@ -140,17 +140,17 @@
 			this.lblRespuesta2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta2.Name = "lblRespuesta2";
 			this.lblRespuesta2.Size = new System.Drawing.Size(67, 13);
-			this.lblRespuesta2.TabIndex = 14;
+			this.lblRespuesta2.TabIndex = 12;
 			this.lblRespuesta2.Text = "Respuesta 2";
 			// 
 			// txtRespuesta3
 			// 
 			this.txtRespuesta3.Location = new System.Drawing.Point(90, 123);
-			this.txtRespuesta3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtRespuesta3.Margin = new System.Windows.Forms.Padding(2);
 			this.txtRespuesta3.Multiline = true;
 			this.txtRespuesta3.Name = "txtRespuesta3";
 			this.txtRespuesta3.Size = new System.Drawing.Size(398, 18);
-			this.txtRespuesta3.TabIndex = 17;
+			this.txtRespuesta3.TabIndex = 4;
 			// 
 			// lblRespuesta3
 			// 
@@ -159,17 +159,17 @@
 			this.lblRespuesta3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta3.Name = "lblRespuesta3";
 			this.lblRespuesta3.Size = new System.Drawing.Size(67, 13);
-			this.lblRespuesta3.TabIndex = 16;
+			this.lblRespuesta3.TabIndex = 13;
 			this.lblRespuesta3.Text = "Respuesta 3";
 			// 
 			// txtRespuesta4
 			// 
 			this.txtRespuesta4.Location = new System.Drawing.Point(90, 148);
-			this.txtRespuesta4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.txtRespuesta4.Margin = new System.Windows.Forms.Padding(2);
 			this.txtRespuesta4.Multiline = true;
 			this.txtRespuesta4.Name = "txtRespuesta4";
 			this.txtRespuesta4.Size = new System.Drawing.Size(398, 18);
-			this.txtRespuesta4.TabIndex = 19;
+			this.txtRespuesta4.TabIndex = 5;
 			// 
 			// lblRespuesta4
 			// 
@@ -178,16 +178,16 @@
 			this.lblRespuesta4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			this.lblRespuesta4.Name = "lblRespuesta4";
 			this.lblRespuesta4.Size = new System.Drawing.Size(67, 13);
-			this.lblRespuesta4.TabIndex = 18;
+			this.lblRespuesta4.TabIndex = 14;
 			this.lblRespuesta4.Text = "Respuesta 4";
 			// 
 			// btnVolver
 			// 
 			this.btnVolver.Location = new System.Drawing.Point(408, 227);
-			this.btnVolver.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnVolver.Margin = new System.Windows.Forms.Padding(2);
 			this.btnVolver.Name = "btnVolver";
 			this.btnVolver.Size = new System.Drawing.Size(76, 32);
-			this.btnVolver.TabIndex = 20;
+			this.btnVolver.TabIndex = 9;
 			this.btnVolver.Text = "Volver";
 			this.btnVolver.UseVisualStyleBackColor = true;
 			this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -214,7 +214,7 @@
 			this.Controls.Add(this.btnGuardar);
 			this.Controls.Add(this.btnAnadiNuevaPregunta);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "AnadirPregunta";
 			this.Text = "AnadirPregunta";
 			this.Load += new System.EventHandler(this.AnadirPregunta_Load);
