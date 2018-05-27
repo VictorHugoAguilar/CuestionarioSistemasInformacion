@@ -363,6 +363,7 @@
 			this.lblPuntuacionTotal.Size = new System.Drawing.Size(13, 13);
 			this.lblPuntuacionTotal.TabIndex = 9;
 			this.lblPuntuacionTotal.Text = "0";
+			this.lblPuntuacionTotal.Click += new System.EventHandler(this.lblPuntuacionTotal_Click);
 			// 
 			// lblPuntuacionIncorrecta
 			// 

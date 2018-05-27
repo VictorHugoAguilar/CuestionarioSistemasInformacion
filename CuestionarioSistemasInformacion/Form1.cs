@@ -139,14 +139,14 @@ namespace CuestionarioSistemasInformacion
 		{
 			if (respuestasCorrectas >= 1 && respuestasIncorrectas >= 1)
 			{
-				int variableCorrectas = (respuestasCorrectas * 100) / (preguntasContestadas - preguntasContestadasMalQuitanPuntos());
+				int variableCorrectas = ((respuestasCorrectas - preguntasContestadasMalQuitanPuntos()) * 100) / preguntasContestadas;
 				totalNota = variableCorrectas;
 			}
 			else
 			{
 				if (respuestasCorrectas > 0)
 				{
-					int variablecalcular = (respuestasCorrectas * 100) / preguntasContestadas;
+					int variablecalcular = ((respuestasCorrectas - respuestasIncorrectas) * 100) / preguntasContestadas;
 					totalNota = variablecalcular;
 				}
 			}
@@ -520,6 +520,11 @@ namespace CuestionarioSistemasInformacion
 					pos--;
 				mostrarRegistro(pos);
 			}
+		}
+
+		private void lblPuntuacionTotal_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
